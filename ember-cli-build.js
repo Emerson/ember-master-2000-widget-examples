@@ -7,6 +7,15 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/selectize/dist/css/selectize.css');
+  app.import('bower_components/selectize/dist/css/selectize.bootstrap3.css');
+  app.import('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css');
+
+  app.import('bower_components/jquery/dist/jquery.js');
+  app.import('bower_components/selectize/dist/js/standalone/selectize.js');
+  app.import('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
