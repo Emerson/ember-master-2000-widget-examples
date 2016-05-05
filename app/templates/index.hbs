@@ -1,4 +1,5 @@
 <div class='row'>
+  <h2>Stacked Form</h2>
   <div class='col-xs-6'>
     {{#fm-form action='submit'}}
 
@@ -6,7 +7,7 @@
 
       {{fm-field
         label='Name'
-        value=model.record.name
+        value=model1.record.name
       }}
 
 
@@ -14,9 +15,9 @@
       {{fm-field
         label='Hot Select'
         widget='hotselect'
-        value=model.record.hotselect
+        value=model1.record.hotselect
         widgetAttrs=(hash
-          options=model.options
+          options=model1.options
         )
       }}
 
@@ -25,7 +26,7 @@
       {{fm-field
         label='Start Date'
         widget='datepicker'
-        value=model.record.startDate
+        value=model1.record.startDate
       }}
 
 
@@ -33,7 +34,7 @@
       {{fm-field
         widget='rangeslider'
         display='rangeslider'
-        value=model.record.howHappy
+        value=model1.record.howHappy
         widgetAttrs=(hash
           min='1'
           max='100'
@@ -51,21 +52,101 @@
   <div class='col-xs-4 col-xs-offset-2'>
     <div class='panel panel-default'>
       <div class='panel-body'>
-        <strong>Name:</strong> {{model.record.name}}<br>
-        <strong>Hot Select:</strong> {{model.record.hotselect}}<br>
-        <strong>Start Date:</strong> {{model.record.startDate}}<br>
-        <strong>How Happy:</strong> {{model.record.howHappy}}<br>
+        <strong>Name:</strong> {{model1.record.name}}<br>
+        <strong>Hot Select:</strong> {{model1.record.hotselect}}<br>
+        <strong>Start Date:</strong> {{model1.record.startDate}}<br>
+        <strong>How Happy:</strong> {{model1.record.howHappy}}<br>
         <hr>
         <div>
-          <button class='btn btn-default' {{action 'setHotselect'}}>Set Select</button>
+          <button class='btn btn-default' {{action (action (mut model1.record.hotselect) 'TOR')}}>Set Select</button>
         </div>
         <br>
         <div>
-          <button class='btn btn-default' {{action 'setStartDate'}}>Set Start Date</button>
+          <button class='btn btn-default' {{action (action (mut model1.record.startDate) '06/22/1983')}}>Set Start Date</button>
         </div>
         <br>
         <div>
-          <button class='btn btn-default' {{action 'setHowHappy'}}>Set How Happy</button>
+          <button class='btn btn-default' {{action (action (mut model1.record.howHappy) 78)}}>Set How Happy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <h2>Horizontal Form</h2>
+  <div class='col-xs-6'>
+    {{#fm-form action='submit' class='form-horizontal'}}
+
+
+      {{fm-field
+        label='Name'
+        display='horizontal'
+        inputId='name2'
+        value=model2.record.name
+      }}
+
+
+
+      {{fm-field
+        label='Hot Select'
+        widget='hotselect'
+        display='horizontal'
+        inputId='select2'
+        value=model2.record.hotselect
+        widgetAttrs=(hash
+          options=model2.options
+        )
+      }}
+
+
+
+      {{fm-field
+        label='Start Date'
+        widget='datepicker'
+        display='horizontal'
+        inputId='datepicker2'
+        value=model2.record.startDate
+      }}
+
+
+
+      {{fm-field
+        widget='rangeslider'
+        display='rangeslider'
+        inputId='range2'
+        value=model2.record.howHappy
+        widgetAttrs=(hash
+          min='1'
+          max='100'
+        )
+      }}
+
+
+
+      {{fm-submit value='Submit'}}
+
+
+
+    {{/fm-form}}
+  </div>
+  <div class='col-xs-4 col-xs-offset-2'>
+    <div class='panel panel-default'>
+      <div class='panel-body'>
+        <strong>Name:</strong> {{model2.record.name}}<br>
+        <strong>Hot Select:</strong> {{model2.record.hotselect}}<br>
+        <strong>Start Date:</strong> {{model2.record.startDate}}<br>
+        <strong>How Happy:</strong> {{model2.record.howHappy}}<br>
+        <hr>
+        <div>
+          <button class='btn btn-default' {{action (action (mut model2.record.hotselect) 'TOR')}}>Set Select</button>
+        </div>
+        <br>
+        <div>
+          <button class='btn btn-default' {{action (action (mut model2.record.startDate) '06/22/1983')}}>Set Start Date</button>
+        </div>
+        <br>
+        <div>
+          <button class='btn btn-default' {{action (action (mut model2.record.howHappy) 78)}}>Set How Happy</button>
         </div>
       </div>
     </div>

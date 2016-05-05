@@ -1,0 +1,23 @@
+<div class="form-group {{if visibleErrors.length 'has-error'}} {{formGroupClass}}">
+  {{#if label}}
+    <label for="{{forAttribute}}" class="col-sm-2 {{styles.labelClass}}">
+      {{{label}}}
+    </label>
+  {{/if}}
+
+  <div class="col-sm-10">
+    {{yield styles.inputClass}}
+
+    {{#if visibleErrors.length}}
+      <span class="{{styles.errortextClass}}">
+        {{visibleErrors.firstObject}}
+      </span>
+    {{/if}}
+
+    {{#if helptext}}
+      <span class="{{styles.helptextClass}}">
+        {{helptext}}
+      </span>
+    {{/if}}
+  </div>
+</div>
