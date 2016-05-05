@@ -9,8 +9,8 @@ function options() {
 }
 
 export default Ember.Route.extend({
-  model: ()=> {
-    return Ember.Object.create({
+  setupController(controller){
+    controller.set('model1', Ember.Object.create({
       record: {
         name: '',
         hotselect: [],
@@ -18,21 +18,16 @@ export default Ember.Route.extend({
         howHappy: 50
       },
       options: options()
-    });
-  },
+    }));
 
-  actions: {
-    setHotselect() {
-      this.currentModel.set('record.hotselect', 'TOR');
-    },
-    setStartDate() {
-      this.currentModel.set('record.startDate', '06/22/1983');
-    },
-    setHowHappy() {
-      this.currentModel.set('record.howHappy', 78);
-    },
-    submit() {
-      this.transitionTo('thanks');
-    }
-  }
+    controller.set('model2', Ember.Object.create({
+      record: {
+        name: '',
+        hotselect: [],
+        startDate: null,
+        howHappy: 50
+      },
+      options: options()
+    }));
+  },
 });
